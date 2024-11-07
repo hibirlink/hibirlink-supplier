@@ -1,0 +1,15 @@
+query{
+  store{
+    name
+  }
+orders:order_detail{
+  status
+  physical_product{
+    store{
+      id
+      name
+    }
+  }
+}
+}
+

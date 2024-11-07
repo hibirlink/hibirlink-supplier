@@ -1,0 +1,29 @@
+query ($user_id: String!) {
+  message(
+    where: {
+      _or: [
+        { receiver_id: { _eq: $user_id } }
+        { sender_id: { _eq: $user_id } }
+      ]
+    }
+    order_by: { created_at: asc }
+  ) {
+    message
+    id
+    sender_id
+    created_at
+
+    receiver_id
+    seen
+    userBySenderId {
+      id
+      first_name
+      last_name
+    }
+    user {
+      id
+      first_name
+      last_name
+    }
+  }
+}
